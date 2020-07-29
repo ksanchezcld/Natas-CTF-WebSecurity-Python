@@ -12,5 +12,18 @@ def loginWebSite():
     content = requests.get(siteUrl, auth = (username, password))
     print(content.text)
 
+def loginNextchallenge():
+    import re
 
-loginWebSite()
+    cookies = {"loggedin": "1"}
+    session = requests.Session()
+
+    response = session.get(siteUrl, auth = (username, password), cookies = cookies)
+    content = response.text
+
+    print(session.cookies['loggedin'])
+    print(content)
+
+
+#loginWebSite()
+loginNextchallenge()              #Access granted. The password for natas6 is aGoY4q2Dc6MgDq4oL4YtoKtyAg9PeHa1</div>
